@@ -5,7 +5,7 @@ import {
   Index,
   JoinColumn,
   ManyToOne,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Team } from '../team/team.entity';
@@ -14,7 +14,7 @@ export type FixtureState = 'scheduled' | 'live' | 'FT';
 
 @Entity({ name: 'fixture' })
 export class Fixture {
-  @PrimaryColumn({ unsigned: true, type: 'bigint' })
+  @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true })
   id: number;
 
   @Column({ type: 'bigint', unsigned: true })

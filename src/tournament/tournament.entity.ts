@@ -3,13 +3,13 @@ import {
   CreateDateColumn,
   Entity,
   Index,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity({ name: 'tournament' })
-export class TournamentEntity {
-  @PrimaryColumn({ unsigned: true, type: 'bigint' })
+export class Tournament {
+  @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true })
   id: number;
 
   @Column({ type: 'varchar' })
