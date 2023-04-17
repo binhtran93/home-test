@@ -1,9 +1,5 @@
 import { Type } from 'class-transformer';
 import { IsNotEmpty } from 'class-validator';
-import {
-  ApiModelProperty,
-  ApiModelPropertyOptional,
-} from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class PaginationQuery {
@@ -29,5 +25,5 @@ export class PaginationQuery {
     example: '30',
     required: false,
   })
-  limit: number = 20;
+  limit = 20;
 }

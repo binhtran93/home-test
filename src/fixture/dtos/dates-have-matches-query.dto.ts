@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsNotEmpty } from 'class-validator';
-import { ApiModelProperty, } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class DatesHaveMatchesQueryDto {
   @Type(() => Date)
