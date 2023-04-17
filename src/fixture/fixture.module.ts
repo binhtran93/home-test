@@ -5,6 +5,7 @@ import { FixtureEntity } from './fixture.entity';
 import { FixtureRepository } from './fixture.repository';
 import { TeamModule } from '../team/team.module';
 import { TournamentModule } from '../tournament/tournament.module';
+import { FixtureListService } from './services/fixture-list.service';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { TournamentModule } from '../tournament/tournament.module';
     TournamentModule,
   ],
   controllers: [FixtureController],
-  providers: [FixtureRepository],
+  providers: [FixtureRepository, FixtureListService],
   exports: [FixtureRepository],
 })
 export class FixtureModule {}

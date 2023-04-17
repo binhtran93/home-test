@@ -9,4 +9,7 @@ export class PaginationQuery {
   @Type(() => Date)
   @IsNotEmpty()
   endDate: Date;
+
+  @Type(() => Number)
+  limit = 20;
 }
