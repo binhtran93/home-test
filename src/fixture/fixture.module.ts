@@ -6,6 +6,7 @@ import { FixtureRepository } from './fixture.repository';
 import { TeamModule } from '../team/team.module';
 import { TournamentModule } from '../tournament/tournament.module';
 import { FixtureListService } from './services/fixture-list.service';
+import { DatesHaveMatchesService } from './services/dates-have-matches.service';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { FixtureListService } from './services/fixture-list.service';
     TournamentModule,
   ],
   controllers: [FixtureController],
-  providers: [FixtureRepository, FixtureListService],
+  providers: [FixtureRepository, FixtureListService, DatesHaveMatchesService],
   exports: [FixtureRepository],
 })
 export class FixtureModule {}

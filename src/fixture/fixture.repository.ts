@@ -29,4 +29,24 @@ export class FixtureRepository extends Repository<FixtureEntity> {
 
     return qb.getMany();
   }
+
+  async findDatesHaveMatches(startDate: Date, endDate: Date) {
+    const qb = await this.createQueryBuilder('f')
+      .select('YEAR(date) as y, Month(date) as m, DAY(date) as d')
+      .where('f.date >= :startDate')
+      .andWhere('f.date <= :endDate')
+      .orderBy({
+        'f.date': 'ASC',
+      })
+      .groupBy('YEAR(f.date), Month(f.date), DAY(f.date)')
+      .orderBy('YEAR(f.date), Month(f.date), DAY(f.date)')
+      .setParameters({
+        startDate: startDate,
+        endDate: endDate,
+      });
+
+    const rawData = await qb.getRawMany();
+
+    return rawData.map((raw) => `${raw.y}-${raw.m}-${raw.d}`);
+  }
 }
