@@ -8,28 +8,27 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Team } from '../team/team.entity';
+import { TeamEntity } from '../team/team.entity';
+import { TournamentEntity } from '../tournament/tournament.entity';
 
 export type FixtureState = 'scheduled' | 'live' | 'FT';
 
 @Entity({ name: 'fixture' })
-export class Fixture {
+export class FixtureEntity {
   @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true })
   id: number;
 
-  @Column({ type: 'bigint', unsigned: true })
-  homeTeamId: number;
+  @ManyToOne(() => TournamentEntity, { nullable: false })
+  @JoinColumn({ name: 'tournamentId' })
+  tournament: TournamentEntity;
 
-  @ManyToOne(() => Team, { nullable: false })
+  @ManyToOne(() => TeamEntity, { nullable: false })
   @JoinColumn({ name: 'homeTeamId' })
-  homeTeam: Team;
+  homeTeam: TeamEntity;
 
-  @Column({ type: 'bigint', unsigned: true })
-  awayTeamId: number;
-
-  @ManyToOne(() => Team, { nullable: false })
+  @ManyToOne(() => TeamEntity, { nullable: false })
   @JoinColumn({ name: 'awayTeamId' })
-  awayTeam: Team;
+  awayTeam: TeamEntity;
 
   @Column({ type: 'bigint', unsigned: true, nullable: true })
   homeTeamScore: number;
@@ -46,9 +45,9 @@ export class Fixture {
 
   @CreateDateColumn({ type: 'timestamp' })
   @Index()
-  createdAt: Date;
+  createdAt?: Date;
 
   @UpdateDateColumn({ type: 'timestamp' })
   @Index()
-  updatedAt: Date;
+  updatedAt?: Date;
 }

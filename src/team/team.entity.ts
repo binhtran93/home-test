@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'team' })
-export class Team {
+export class TeamEntity {
   @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true })
   id: number;
 
