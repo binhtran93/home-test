@@ -1,16 +1,26 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { FixtureRepository } from './fixture.repository';
 import { FixtureEntity } from './fixture.entity';
 import { TeamRepository } from '../team/team.repository';
 import { TournamentRepository } from '../tournament/tournament.repository';
+import { PaginationQuery } from './request/pagination-query.dto';
 
-@Controller()
+@Controller('/api/v1/fixtures')
 export class FixtureController {
   constructor(
     private readonly fixtureRepository: FixtureRepository,
     private readonly teamRepository: TeamRepository,
     private readonly tournamentRepository: TournamentRepository,
   ) {}
+
+  @Get('/')
+  async paginate(@Query() paginationQuery: PaginationQuery) {
+    return this.fixtureRepository.paginate(
+      paginationQuery.startDate,
+      new Date(),
+    );
+  }
+
   @Get('/')
   async test() {
     const startDate = new Date();
