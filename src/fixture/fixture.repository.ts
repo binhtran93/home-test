@@ -30,7 +30,7 @@ export class FixtureRepository extends Repository<FixtureEntity> {
     return qb.getMany();
   }
 
-  async findDatesHaveMatches(
+  async findDatesHaveFixtures(
     startDate: Date,
     endDate: Date,
   ): Promise<string[]> {

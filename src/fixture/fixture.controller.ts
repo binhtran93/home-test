@@ -3,7 +3,7 @@ import { PaginationQuery } from './dtos/pagination-query.dto';
 import { FixtureListService } from './services/fixture-list.service';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AvailableFixturesDateQueryDto } from './dtos/available-fixtures-date-query.dto';
-import { DatesHaveMatchesService } from './services/dates-have-matches.service';
+import { AvailableFixturesDatesService } from './services/available-fixtures-dates.service';
 import { FixtureDto } from './dtos/fixture.dto';
 import { AvailableFixturesDateResponseDto } from './dtos/available-fixtures-date-response.dto';
 
@@ -12,7 +12,7 @@ import { AvailableFixturesDateResponseDto } from './dtos/available-fixtures-date
 export class FixtureController {
   constructor(
     private readonly fixtureListService: FixtureListService,
-    private readonly datesHaveMatchesService: DatesHaveMatchesService,
+    private readonly datesHaveMatchesService: AvailableFixturesDatesService,
   ) {}
 
   @Get('/')

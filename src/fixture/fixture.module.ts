@@ -6,7 +6,7 @@ import { FixtureRepository } from './fixture.repository';
 import { TeamModule } from '../team/team.module';
 import { TournamentModule } from '../tournament/tournament.module';
 import { FixtureListService } from './services/fixture-list.service';
-import { DatesHaveMatchesService } from './services/dates-have-matches.service';
+import { AvailableFixturesDatesService } from './services/available-fixtures-dates.service';
 import { MapperModule } from '../shared/mapper/mapper.module';
 
 @Module({
@@ -17,7 +17,7 @@ import { MapperModule } from '../shared/mapper/mapper.module';
     MapperModule,
   ],
   controllers: [FixtureController],
-  providers: [FixtureRepository, FixtureListService, DatesHaveMatchesService],
+  providers: [FixtureRepository, FixtureListService, AvailableFixturesDatesService],
   exports: [FixtureRepository],
 })
 export class FixtureModule {}

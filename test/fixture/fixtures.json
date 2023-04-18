@@ -1,0 +1,572 @@
+[
+  {
+    "id": "45",
+    "homeTeam": {
+      "id": "14",
+      "name": "Casper Inc"
+    },
+    "awayTeam": {
+      "id": "81",
+      "name": "Monahan, Pollich and MacGyver"
+    },
+    "tournament": {
+      "id": "2",
+      "name": "CONMEBOL"
+    },
+    "state": "FT",
+    "homeTeamScore": "0",
+    "awayTeamScore": "1",
+    "date": "2023-04-07T09:08:13.000Z"
+  },
+  {
+    "id": "46",
+    "homeTeam": {
+      "id": "15",
+      "name": "Kessler and Sons"
+    },
+    "awayTeam": {
+      "id": "8",
+      "name": "Johns-Oberbrunner"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "FT",
+    "homeTeamScore": "2",
+    "awayTeamScore": "1",
+    "date": "2023-04-10T09:08:13.000Z"
+  },
+  {
+    "id": "47",
+    "homeTeam": {
+      "id": "67",
+      "name": "Greenholt-Kohler"
+    },
+    "awayTeam": {
+      "id": "24",
+      "name": "Rowe LLC"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "FT",
+    "homeTeamScore": "0",
+    "awayTeamScore": "3",
+    "date": "2023-04-10T15:08:13.000Z"
+  },
+  {
+    "id": "48",
+    "homeTeam": {
+      "id": "10",
+      "name": "Kuphal-Witting"
+    },
+    "awayTeam": {
+      "id": "73",
+      "name": "McLaughlin LLC"
+    },
+    "tournament": {
+      "id": "3",
+      "name": "AFC"
+    },
+    "state": "FT",
+    "homeTeamScore": "1",
+    "awayTeamScore": "1",
+    "date": "2023-04-10T21:08:13.000Z"
+  },
+  {
+    "id": "49",
+    "homeTeam": {
+      "id": "68",
+      "name": "Heidenreich-Halvorson"
+    },
+    "awayTeam": {
+      "id": "64",
+      "name": "Wehner LLC"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "FT",
+    "homeTeamScore": "3",
+    "awayTeamScore": "1",
+    "date": "2023-04-11T03:08:13.000Z"
+  },
+  {
+    "id": "50",
+    "homeTeam": {
+      "id": "23",
+      "name": "Flatley LLC"
+    },
+    "awayTeam": {
+      "id": "83",
+      "name": "Dicki, Beer and Will"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "FT",
+    "homeTeamScore": "0",
+    "awayTeamScore": "1",
+    "date": "2023-04-11T09:08:13.000Z"
+  },
+  {
+    "id": "51",
+    "homeTeam": {
+      "id": "98",
+      "name": "Hagenes, Williamson and Rogahn"
+    },
+    "awayTeam": {
+      "id": "44",
+      "name": "Lindgren and Sons"
+    },
+    "tournament": {
+      "id": "1",
+      "name": "UEFA"
+    },
+    "state": "FT",
+    "homeTeamScore": "1",
+    "awayTeamScore": "3",
+    "date": "2023-04-11T15:08:13.000Z"
+  },
+  {
+    "id": "52",
+    "homeTeam": {
+      "id": "52",
+      "name": "Corwin, Mante and Nitzsche"
+    },
+    "awayTeam": {
+      "id": "67",
+      "name": "Greenholt-Kohler"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "FT",
+    "homeTeamScore": "3",
+    "awayTeamScore": "3",
+    "date": "2023-04-14T15:08:13.000Z"
+  },
+  {
+    "id": "53",
+    "homeTeam": {
+      "id": "53",
+      "name": "Funk, Price and Sipes"
+    },
+    "awayTeam": {
+      "id": "74",
+      "name": "Erdman, Douglas and Koch"
+    },
+    "tournament": {
+      "id": "1",
+      "name": "UEFA"
+    },
+    "state": "FT",
+    "homeTeamScore": "3",
+    "awayTeamScore": "1",
+    "date": "2023-04-14T21:08:13.000Z"
+  },
+  {
+    "id": "54",
+    "homeTeam": {
+      "id": "7",
+      "name": "Bartell-Klocko"
+    },
+    "awayTeam": {
+      "id": "94",
+      "name": "Streich and Sons"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "FT",
+    "homeTeamScore": "1",
+    "awayTeamScore": "3",
+    "date": "2023-04-15T03:08:13.000Z"
+  },
+  {
+    "id": "55",
+    "homeTeam": {
+      "id": "58",
+      "name": "Smith, Turner and Huel"
+    },
+    "awayTeam": {
+      "id": "22",
+      "name": "Cremin Group"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "FT",
+    "homeTeamScore": "3",
+    "awayTeamScore": "0",
+    "date": "2023-04-15T09:08:13.000Z"
+  },
+  {
+    "id": "56",
+    "homeTeam": {
+      "id": "95",
+      "name": "Fay-Schowalter"
+    },
+    "awayTeam": {
+      "id": "2",
+      "name": "Gottlieb and Sons"
+    },
+    "tournament": {
+      "id": "3",
+      "name": "AFC"
+    },
+    "state": "FT",
+    "homeTeamScore": "0",
+    "awayTeamScore": "3",
+    "date": "2023-04-15T15:08:13.000Z"
+  },
+  {
+    "id": "57",
+    "homeTeam": {
+      "id": "69",
+      "name": "Mueller Group"
+    },
+    "awayTeam": {
+      "id": "81",
+      "name": "Monahan, Pollich and MacGyver"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "FT",
+    "homeTeamScore": "2",
+    "awayTeamScore": "2",
+    "date": "2023-04-15T21:08:13.000Z"
+  },
+  {
+    "id": "58",
+    "homeTeam": {
+      "id": "96",
+      "name": "Gerlach, Wehner and Kub"
+    },
+    "awayTeam": {
+      "id": "48",
+      "name": "Renner Inc"
+    },
+    "tournament": {
+      "id": "2",
+      "name": "CONMEBOL"
+    },
+    "state": "FT",
+    "homeTeamScore": "0",
+    "awayTeamScore": "0",
+    "date": "2023-04-18T21:08:13.000Z"
+  },
+  {
+    "id": "59",
+    "homeTeam": {
+      "id": "95",
+      "name": "Fay-Schowalter"
+    },
+    "awayTeam": {
+      "id": "22",
+      "name": "Cremin Group"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-04-19T03:08:13.000Z"
+  },
+  {
+    "id": "60",
+    "homeTeam": {
+      "id": "2",
+      "name": "Gottlieb and Sons"
+    },
+    "awayTeam": {
+      "id": "76",
+      "name": "Dickens-Kassulke"
+    },
+    "tournament": {
+      "id": "3",
+      "name": "AFC"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-04-22T03:08:13.000Z"
+  },
+  {
+    "id": "61",
+    "homeTeam": {
+      "id": "19",
+      "name": "Aufderhar-Johnson"
+    },
+    "awayTeam": {
+      "id": "62",
+      "name": "Bartell-Franecki"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-04-22T09:08:13.000Z"
+  },
+  {
+    "id": "62",
+    "homeTeam": {
+      "id": "6",
+      "name": "Witting Group"
+    },
+    "awayTeam": {
+      "id": "44",
+      "name": "Lindgren and Sons"
+    },
+    "tournament": {
+      "id": "3",
+      "name": "AFC"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-04-25T09:08:13.000Z"
+  },
+  {
+    "id": "63",
+    "homeTeam": {
+      "id": "22",
+      "name": "Cremin Group"
+    },
+    "awayTeam": {
+      "id": "13",
+      "name": "Boyle Inc"
+    },
+    "tournament": {
+      "id": "1",
+      "name": "UEFA"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-04-28T09:08:13.000Z"
+  },
+  {
+    "id": "64",
+    "homeTeam": {
+      "id": "100",
+      "name": "Jacobs-Carter"
+    },
+    "awayTeam": {
+      "id": "57",
+      "name": "Friesen, Kovacek and Graham"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-04-28T15:08:13.000Z"
+  },
+  {
+    "id": "65",
+    "homeTeam": {
+      "id": "84",
+      "name": "Quigley LLC"
+    },
+    "awayTeam": {
+      "id": "60",
+      "name": "Bins-Haley"
+    },
+    "tournament": {
+      "id": "3",
+      "name": "AFC"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-01T15:08:13.000Z"
+  },
+  {
+    "id": "66",
+    "homeTeam": {
+      "id": "28",
+      "name": "Parisian-Emmerich"
+    },
+    "awayTeam": {
+      "id": "41",
+      "name": "Hackett-Deckow"
+    },
+    "tournament": {
+      "id": "2",
+      "name": "CONMEBOL"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-04T15:08:13.000Z"
+  },
+  {
+    "id": "67",
+    "homeTeam": {
+      "id": "90",
+      "name": "Grimes-Hilpert"
+    },
+    "awayTeam": {
+      "id": "9",
+      "name": "Rogahn-Medhurst"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-07T15:08:13.000Z"
+  },
+  {
+    "id": "68",
+    "homeTeam": {
+      "id": "87",
+      "name": "Orn, Hammes and Braun"
+    },
+    "awayTeam": {
+      "id": "100",
+      "name": "Jacobs-Carter"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-07T21:08:13.000Z"
+  },
+  {
+    "id": "69",
+    "homeTeam": {
+      "id": "40",
+      "name": "Morissette, Klein and Bosco"
+    },
+    "awayTeam": {
+      "id": "78",
+      "name": "Murray and Sons"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-08T03:08:13.000Z"
+  },
+  {
+    "id": "70",
+    "homeTeam": {
+      "id": "72",
+      "name": "Schaden-Rodriguez"
+    },
+    "awayTeam": {
+      "id": "97",
+      "name": "Von, Marquardt and Towne"
+    },
+    "tournament": {
+      "id": "1",
+      "name": "UEFA"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-11T03:08:13.000Z"
+  },
+  {
+    "id": "71",
+    "homeTeam": {
+      "id": "30",
+      "name": "Mills-Stamm"
+    },
+    "awayTeam": {
+      "id": "50",
+      "name": "Sanford-Simonis"
+    },
+    "tournament": {
+      "id": "1",
+      "name": "UEFA"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-11T09:08:13.000Z"
+  },
+  {
+    "id": "72",
+    "homeTeam": {
+      "id": "80",
+      "name": "O'Conner Inc"
+    },
+    "awayTeam": {
+      "id": "68",
+      "name": "Heidenreich-Halvorson"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-14T09:08:13.000Z"
+  },
+  {
+    "id": "73",
+    "homeTeam": {
+      "id": "87",
+      "name": "Orn, Hammes and Braun"
+    },
+    "awayTeam": {
+      "id": "17",
+      "name": "Blanda, Orn and Zboncak"
+    },
+    "tournament": {
+      "id": "1",
+      "name": "UEFA"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-14T15:08:13.000Z"
+  },
+  {
+    "id": "74",
+    "homeTeam": {
+      "id": "13",
+      "name": "Boyle Inc"
+    },
+    "awayTeam": {
+      "id": "2",
+      "name": "Gottlieb and Sons"
+    },
+    "tournament": {
+      "id": "4",
+      "name": "CAF"
+    },
+    "state": "sheduled",
+    "homeTeamScore": null,
+    "awayTeamScore": null,
+    "date": "2023-05-14T21:08:13.000Z"
+  }
+]
