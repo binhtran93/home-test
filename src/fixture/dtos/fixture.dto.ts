@@ -27,5 +27,5 @@ export class FixtureDto {
   state: string;
 
   @ApiProperty()
-  date: Date;
+  date: string;
 }

@@ -22,7 +22,7 @@ export class FixtureMapperService
     dto.state = entity.state;
     dto.homeTeamScore = entity.homeTeamScore;
     dto.awayTeamScore = entity.awayTeamScore;
-    dto.date = entity.date;
+    dto.date = entity.date.toISOString();
 
     return dto;
   }

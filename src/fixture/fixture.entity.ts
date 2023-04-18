@@ -30,10 +30,10 @@ export class FixtureEntity {
   @JoinColumn({ name: 'awayTeamId' })
   awayTeam: TeamEntity;
 
-  @Column({ type: 'bigint', unsigned: true, nullable: true })
+  @Column({ type: 'int', unsigned: true, nullable: true })
   homeTeamScore: number;
 
-  @Column({ type: 'bigint', unsigned: true, nullable: true })
+  @Column({ type: 'int', unsigned: true, nullable: true })
   awayTeamScore: number;
 
   @Column({ length: 50 })

@@ -8,7 +8,7 @@ import { readFile } from 'fs/promises';
 const moduleMocker = new ModuleMocker(global);
 
 describe('FixtureController', () => {
-  let appController: FixtureController;
+  let fixtureController: FixtureController;
   let fixtureData;
 
   beforeEach(async () => {
@@ -37,7 +37,7 @@ describe('FixtureController', () => {
       })
       .compile();
 
-    appController = app.get<FixtureController>(FixtureController);
+    fixtureController = app.get<FixtureController>(FixtureController);
   });
 
   describe('root', () => {
@@ -47,8 +47,8 @@ describe('FixtureController', () => {
         endDate: new Date(),
         limit: Math.floor(Math.random() * 30),
       };
-      const expected = await appController.paginate(paginateQuery);
-      expect(expected).toEqual(fixtureData);
+      const result = await fixtureController.paginate(paginateQuery);
+      expect(fixtureData).toEqual(result);
     });
   });
 });
