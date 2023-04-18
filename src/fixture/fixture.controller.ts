@@ -2,9 +2,10 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { PaginationQuery } from './dtos/pagination-query.dto';
 import { FixtureListService } from './services/fixture-list.service';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { DatesHaveMatchesQueryDto } from './dtos/dates-have-matches-query.dto';
+import { AvailableFixturesDateQueryDto } from './dtos/available-fixtures-date-query.dto';
 import { DatesHaveMatchesService } from './services/dates-have-matches.service';
 import { FixtureDto } from './dtos/fixture.dto';
+import { AvailableFixturesDateResponseDto } from './dtos/available-fixtures-date-response.dto';
 
 @ApiTags('fixtures')
 @Controller('/api/v1/fixtures')
@@ -30,9 +31,13 @@ export class FixtureController {
   }
 
   @Get('/dates')
+  @ApiResponse({
+    status: 200,
+    type: [AvailableFixturesDateResponseDto],
+  })
   async getDatesHaveMatches(
-    @Query() datesHaveMatchesQueryDto: DatesHaveMatchesQueryDto,
-  ) {
+    @Query() datesHaveMatchesQueryDto: AvailableFixturesDateQueryDto,
+  ): Promise<AvailableFixturesDateResponseDto[]> {
     return this.datesHaveMatchesService.get(
       datesHaveMatchesQueryDto.startDate,
       datesHaveMatchesQueryDto.endDate,

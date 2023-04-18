@@ -30,7 +30,10 @@ export class FixtureRepository extends Repository<FixtureEntity> {
     return qb.getMany();
   }
 
-  async findDatesHaveMatches(startDate: Date, endDate: Date) {
+  async findDatesHaveMatches(
+    startDate: Date,
+    endDate: Date,
+  ): Promise<string[]> {
     const qb = await this.createQueryBuilder('f')
       .select('YEAR(date) as y, Month(date) as m, DAY(date) as d')
       .where('f.date >= :startDate')
