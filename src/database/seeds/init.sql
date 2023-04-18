@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.24, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: home-test
+-- Host: 127.0.0.1    Database: db
 -- ------------------------------------------------------
 -- Server version	8.0.23
 
@@ -24,23 +24,27 @@ DROP TABLE IF EXISTS `fixture`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fixture` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `homeTeamId` bigint unsigned NOT NULL,
-  `awayTeamId` bigint unsigned NOT NULL,
-  `homeTeamScore` bigint unsigned DEFAULT NULL,
-  `awayTeamScore` bigint unsigned DEFAULT NULL,
+  `homeTeamScore` int unsigned DEFAULT NULL,
+  `awayTeamScore` int unsigned DEFAULT NULL,
   `state` varchar(50) NOT NULL,
+  `logo` varchar(500) NOT NULL,
   `date` timestamp NOT NULL,
   `createdAt` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `updatedAt` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `tournamentId` bigint unsigned NOT NULL,
+  `homeTeamId` bigint unsigned NOT NULL,
+  `awayTeamId` bigint unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_82f360d6fa749d4e7c400cf0ab` (`date`),
   KEY `IDX_67a8aac17b2515a4b781461319` (`createdAt`),
   KEY `IDX_f61f361e990396f69f29053c90` (`updatedAt`),
+  KEY `FK_449d1f9930778da9e26ef81e60a` (`tournamentId`),
   KEY `FK_abbb9dc0c9aca6312eee7d54ad7` (`homeTeamId`),
   KEY `FK_6abf61842adc90eb78ccbdbfe01` (`awayTeamId`),
-  CONSTRAINT `FK_6abf61842adc90eb78ccbdbfe01` FOREIGN KEY (`awayTeamId`) REFERENCES `team` (`id`),
-  CONSTRAINT `FK_abbb9dc0c9aca6312eee7d54ad7` FOREIGN KEY (`homeTeamId`) REFERENCES `team` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `FK_449d1f9930778da9e26ef81e60a` FOREIGN KEY (`tournamentId`) REFERENCES `tournament` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_6abf61842adc90eb78ccbdbfe01` FOREIGN KEY (`awayTeamId`) REFERENCES `team` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_abbb9dc0c9aca6312eee7d54ad7` FOREIGN KEY (`homeTeamId`) REFERENCES `team` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +53,7 @@ CREATE TABLE `fixture` (
 
 LOCK TABLES `fixture` WRITE;
 /*!40000 ALTER TABLE `fixture` DISABLE KEYS */;
+INSERT INTO `fixture` VALUES (1,0,0,'FT','https://logo.com','2023-04-09 05:31:55','2023-04-18 16:31:55.416159','2023-04-18 16:31:55.416159',1,32,44),(2,2,3,'FT','https://logo.com','2023-04-12 05:31:55','2023-04-18 16:31:55.430945','2023-04-18 16:31:55.430945',2,10,97),(3,0,3,'FT','https://logo.com','2023-04-12 11:31:55','2023-04-18 16:31:55.441665','2023-04-18 16:31:55.441665',1,3,38),(4,3,0,'FT','https://logo.com','2023-04-12 17:31:55','2023-04-18 16:31:55.448358','2023-04-18 16:31:55.448358',1,89,55),(5,0,1,'FT','https://logo.com','2023-04-15 17:31:55','2023-04-18 16:31:55.457499','2023-04-18 16:31:55.457499',1,13,50),(6,2,3,'FT','https://logo.com','2023-04-15 23:31:55','2023-04-18 16:31:55.471527','2023-04-18 16:31:55.471527',2,65,43),(7,3,2,'FT','https://logo.com','2023-04-16 05:31:55','2023-04-18 16:31:55.479783','2023-04-18 16:31:55.479783',4,67,59),(8,2,3,'FT','https://logo.com','2023-04-16 11:31:55','2023-04-18 16:31:55.488433','2023-04-18 16:31:55.488433',1,83,64),(9,0,0,'FT','https://logo.com','2023-04-16 17:31:55','2023-04-18 16:31:55.497084','2023-04-18 16:31:55.497084',4,41,86),(10,3,3,'FT','https://logo.com','2023-04-16 23:31:55','2023-04-18 16:31:55.505990','2023-04-18 16:31:55.505990',2,42,82),(11,3,2,'FT','https://logo.com','2023-04-19 23:31:55','2023-04-18 16:31:55.512678','2023-04-18 16:31:55.512678',4,100,2),(12,NULL,NULL,'scheduled','https://logo.com','2023-04-20 05:31:55','2023-04-18 16:31:55.520991','2023-04-18 16:31:55.520991',3,89,51),(13,NULL,NULL,'scheduled','https://logo.com','2023-04-20 11:31:55','2023-04-18 16:31:55.527837','2023-04-18 16:31:55.527837',1,26,63),(14,NULL,NULL,'scheduled','https://logo.com','2023-04-23 11:31:55','2023-04-18 16:31:55.536693','2023-04-18 16:31:55.536693',4,64,97),(15,NULL,NULL,'scheduled','https://logo.com','2023-04-23 17:31:55','2023-04-18 16:31:55.543376','2023-04-18 16:31:55.543376',1,47,65),(16,NULL,NULL,'scheduled','https://logo.com','2023-04-26 17:31:55','2023-04-18 16:31:55.551585','2023-04-18 16:31:55.551585',3,87,98),(17,NULL,NULL,'scheduled','https://logo.com','2023-04-26 23:31:55','2023-04-18 16:31:55.558370','2023-04-18 16:31:55.558370',2,76,88),(18,NULL,NULL,'scheduled','https://logo.com','2023-04-29 23:31:55','2023-04-18 16:31:55.567070','2023-04-18 16:31:55.567070',4,37,87),(19,NULL,NULL,'scheduled','https://logo.com','2023-04-30 05:31:55','2023-04-18 16:31:55.576466','2023-04-18 16:31:55.576466',4,99,32),(20,NULL,NULL,'scheduled','https://logo.com','2023-04-30 11:31:55','2023-04-18 16:31:55.587043','2023-04-18 16:31:55.587043',4,10,7),(21,NULL,NULL,'scheduled','https://logo.com','2023-05-03 11:31:55','2023-04-18 16:31:55.595621','2023-04-18 16:31:55.595621',3,32,48),(22,NULL,NULL,'scheduled','https://logo.com','2023-05-03 17:31:55','2023-04-18 16:31:55.603132','2023-04-18 16:31:55.603132',3,4,23),(23,NULL,NULL,'scheduled','https://logo.com','2023-05-06 17:31:55','2023-04-18 16:31:55.610931','2023-04-18 16:31:55.610931',4,82,75),(24,NULL,NULL,'scheduled','https://logo.com','2023-05-06 23:31:55','2023-04-18 16:31:55.620710','2023-04-18 16:31:55.620710',4,45,35),(25,NULL,NULL,'scheduled','https://logo.com','2023-05-07 05:31:55','2023-04-18 16:31:55.627035','2023-04-18 16:31:55.627035',4,95,63),(26,NULL,NULL,'scheduled','https://logo.com','2023-05-07 11:31:55','2023-04-18 16:31:55.634336','2023-04-18 16:31:55.634336',1,94,76),(27,NULL,NULL,'scheduled','https://logo.com','2023-05-07 17:31:55','2023-04-18 16:31:55.642737','2023-04-18 16:31:55.642737',3,83,3),(28,NULL,NULL,'scheduled','https://logo.com','2023-05-07 23:31:55','2023-04-18 16:31:55.650950','2023-04-18 16:31:55.650950',2,16,26),(29,NULL,NULL,'scheduled','https://logo.com','2023-05-08 05:31:55','2023-04-18 16:31:55.659029','2023-04-18 16:31:55.659029',1,5,13),(30,NULL,NULL,'scheduled','https://logo.com','2023-05-08 11:31:55','2023-04-18 16:31:55.666166','2023-04-18 16:31:55.666166',4,90,97),(31,NULL,NULL,'scheduled','https://logo.com','2023-05-08 17:31:55','2023-04-18 16:31:55.673484','2023-04-18 16:31:55.673484',1,88,78),(32,NULL,NULL,'scheduled','https://logo.com','2023-05-08 23:31:55','2023-04-18 16:31:55.679404','2023-04-18 16:31:55.679404',2,33,36),(33,NULL,NULL,'scheduled','https://logo.com','2023-05-09 05:31:55','2023-04-18 16:31:55.688778','2023-04-18 16:31:55.688778',4,5,45),(34,NULL,NULL,'scheduled','https://logo.com','2023-05-09 11:31:55','2023-04-18 16:31:55.696036','2023-04-18 16:31:55.696036',1,77,86),(35,NULL,NULL,'scheduled','https://logo.com','2023-05-09 17:31:55','2023-04-18 16:31:55.703412','2023-04-18 16:31:55.703412',1,28,4),(36,NULL,NULL,'scheduled','https://logo.com','2023-05-12 17:31:55','2023-04-18 16:31:55.711535','2023-04-18 16:31:55.711535',1,90,44),(37,NULL,NULL,'scheduled','https://logo.com','2023-05-15 17:31:55','2023-04-18 16:31:55.720461','2023-04-18 16:31:55.720461',4,19,90),(38,NULL,NULL,'scheduled','https://logo.com','2023-05-15 23:31:55','2023-04-18 16:31:55.727805','2023-04-18 16:31:55.727805',3,11,34),(39,NULL,NULL,'scheduled','https://logo.com','2023-05-18 23:31:55','2023-04-18 16:31:55.735620','2023-04-18 16:31:55.735620',2,28,67),(40,NULL,NULL,'scheduled','https://logo.com','2023-05-19 05:31:55','2023-04-18 16:31:55.742197','2023-04-18 16:31:55.742197',3,52,98),(41,NULL,NULL,'scheduled','https://logo.com','2023-05-19 11:31:55','2023-04-18 16:31:55.751814','2023-04-18 16:31:55.751814',4,51,82),(42,NULL,NULL,'scheduled','https://logo.com','2023-05-19 17:31:55','2023-04-18 16:31:55.760285','2023-04-18 16:31:55.760285',3,31,67),(43,NULL,NULL,'scheduled','https://logo.com','2023-05-19 23:31:55','2023-04-18 16:31:55.768287','2023-04-18 16:31:55.768287',3,27,83),(44,NULL,NULL,'scheduled','https://logo.com','2023-05-22 23:31:55','2023-04-18 16:31:55.775092','2023-04-18 16:31:55.775092',3,10,4),(45,NULL,NULL,'scheduled','https://logo.com','2023-05-23 05:31:55','2023-04-18 16:31:55.783273','2023-04-18 16:31:55.783273',3,61,55),(46,NULL,NULL,'scheduled','https://logo.com','2023-05-26 05:31:55','2023-04-18 16:31:55.791238','2023-04-18 16:31:55.791238',1,63,5),(47,NULL,NULL,'scheduled','https://logo.com','2023-05-26 11:31:55','2023-04-18 16:31:55.798168','2023-04-18 16:31:55.798168',3,90,100),(48,NULL,NULL,'scheduled','https://logo.com','2023-05-26 17:31:55','2023-04-18 16:31:55.806738','2023-04-18 16:31:55.806738',4,61,29),(49,NULL,NULL,'scheduled','https://logo.com','2023-05-29 17:31:55','2023-04-18 16:31:55.814824','2023-04-18 16:31:55.814824',1,49,90),(50,NULL,NULL,'scheduled','https://logo.com','2023-05-29 23:31:55','2023-04-18 16:31:55.822717','2023-04-18 16:31:55.822717',2,48,90),(51,NULL,NULL,'scheduled','https://logo.com','2023-06-01 23:31:55','2023-04-18 16:31:55.829375','2023-04-18 16:31:55.829375',3,24,1),(52,NULL,NULL,'scheduled','https://logo.com','2023-06-02 05:31:55','2023-04-18 16:31:55.836803','2023-04-18 16:31:55.836803',1,40,27),(53,NULL,NULL,'scheduled','https://logo.com','2023-06-02 11:31:55','2023-04-18 16:31:55.845067','2023-04-18 16:31:55.845067',4,42,27),(54,NULL,NULL,'scheduled','https://logo.com','2023-06-02 17:31:55','2023-04-18 16:31:55.852373','2023-04-18 16:31:55.852373',1,8,7),(55,NULL,NULL,'scheduled','https://logo.com','2023-06-02 23:31:55','2023-04-18 16:31:55.859557','2023-04-18 16:31:55.859557',2,16,12),(56,NULL,NULL,'scheduled','https://logo.com','2023-06-03 05:31:55','2023-04-18 16:31:55.867604','2023-04-18 16:31:55.867604',2,56,79),(57,NULL,NULL,'scheduled','https://logo.com','2023-06-03 11:31:55','2023-04-18 16:31:55.875347','2023-04-18 16:31:55.875347',1,62,8),(58,NULL,NULL,'scheduled','https://logo.com','2023-06-03 17:31:55','2023-04-18 16:31:55.884398','2023-04-18 16:31:55.884398',2,95,69),(59,NULL,NULL,'scheduled','https://logo.com','2023-06-06 17:31:55','2023-04-18 16:31:55.892390','2023-04-18 16:31:55.892390',3,42,87),(60,NULL,NULL,'scheduled','https://logo.com','2023-06-06 23:31:55','2023-04-18 16:31:55.900111','2023-04-18 16:31:55.900111',4,97,86),(61,NULL,NULL,'scheduled','https://logo.com','2023-06-07 05:31:55','2023-04-18 16:31:55.908414','2023-04-18 16:31:55.908414',4,76,76),(62,NULL,NULL,'scheduled','https://logo.com','2023-06-07 11:31:55','2023-04-18 16:31:55.915703','2023-04-18 16:31:55.915703',3,16,77),(63,NULL,NULL,'scheduled','https://logo.com','2023-06-07 17:31:55','2023-04-18 16:31:55.924660','2023-04-18 16:31:55.924660',3,72,10),(64,NULL,NULL,'scheduled','https://logo.com','2023-06-10 17:31:55','2023-04-18 16:31:55.932552','2023-04-18 16:31:55.932552',2,80,68),(65,NULL,NULL,'scheduled','https://logo.com','2023-06-13 17:31:55','2023-04-18 16:31:55.939301','2023-04-18 16:31:55.939301',2,50,94),(66,NULL,NULL,'scheduled','https://logo.com','2023-06-16 17:31:55','2023-04-18 16:31:55.947067','2023-04-18 16:31:55.947067',1,72,66),(67,NULL,NULL,'scheduled','https://logo.com','2023-06-16 23:31:55','2023-04-18 16:31:55.955473','2023-04-18 16:31:55.955473',3,99,67),(68,NULL,NULL,'scheduled','https://logo.com','2023-06-17 05:31:55','2023-04-18 16:31:55.962890','2023-04-18 16:31:55.962890',3,98,41),(69,NULL,NULL,'scheduled','https://logo.com','2023-06-17 11:31:55','2023-04-18 16:31:55.970302','2023-04-18 16:31:55.970302',4,99,37),(70,NULL,NULL,'scheduled','https://logo.com','2023-06-17 17:31:55','2023-04-18 16:31:55.976971','2023-04-18 16:31:55.976971',3,90,85),(71,NULL,NULL,'scheduled','https://logo.com','2023-06-17 23:31:55','2023-04-18 16:31:55.985995','2023-04-18 16:31:55.985995',3,97,86);
 /*!40000 ALTER TABLE `fixture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +78,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,1681665605800,'Init1681665605800');
+INSERT INTO `migrations` VALUES (1,1681835315579,'Init1681835315579');
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-17  7:39:58
+-- Dump completed on 2023-04-18 23:32:52
