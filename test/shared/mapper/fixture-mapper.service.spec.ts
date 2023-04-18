@@ -40,7 +40,7 @@ describe('FixtureMapperService', () => {
   };
 
   describe('root', () => {
-    it('should return paginated fixtures DTO', async () => {
+    it('should convert Fixture entity to DTO', async () => {
       const homeTeamDto: TeamDto = {
         id: 1,
         name: 'home_team',
