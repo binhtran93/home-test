@@ -1,9 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MockFunctionMetadata, ModuleMocker } from 'jest-mock';
 import { FixtureRepository } from '../../../src/fixture/fixture.repository';
 import { AvailableFixturesDatesService } from '../../../src/fixture/services/available-fixtures-dates.service';
-
-const moduleMocker = new ModuleMocker(global);
 
 describe('AvailableFixturesDatesService', () => {
   let availableFixturesDatesService: AvailableFixturesDatesService;
@@ -20,15 +17,6 @@ describe('AvailableFixturesDatesService', () => {
               .fn()
               .mockResolvedValue(datesHaveFixtures),
           };
-        }
-
-        if (typeof token === 'function') {
-          const mockMetadata = moduleMocker.getMetadata(
-            token,
-          ) as MockFunctionMetadata<any, any>;
-          const Mock = moduleMocker.generateFromMetadata(mockMetadata);
-
-          return new Mock();
         }
       })
       .compile();

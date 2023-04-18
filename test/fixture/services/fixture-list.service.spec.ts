@@ -1,12 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ModuleMocker, MockFunctionMetadata } from 'jest-mock';
 import { readFile } from 'fs/promises';
 import { FixtureListService } from '../../../src/fixture/services/fixture-list.service';
 import { FixtureRepository } from '../../../src/fixture/fixture.repository';
 import { MapperProcessorService } from '../../../src/shared/mapper/mapper-processor.service';
 import { FixtureDto } from '../../../src/fixture/dtos/fixture.dto';
-
-const moduleMocker = new ModuleMocker(global);
 
 describe('FixtureListService', () => {
   let fixtureListService: FixtureListService;
@@ -49,15 +46,6 @@ describe('FixtureListService', () => {
           return {
             map: jest.fn().mockReturnValue(fixtureDto),
           };
-        }
-
-        if (typeof token === 'function') {
-          const mockMetadata = moduleMocker.getMetadata(
-            token,
-          ) as MockFunctionMetadata<any, any>;
-          const Mock = moduleMocker.generateFromMetadata(mockMetadata);
-
-          return new Mock();
         }
       })
       .compile();

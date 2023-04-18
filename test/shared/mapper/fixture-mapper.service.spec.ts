@@ -1,16 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MockFunctionMetadata, ModuleMocker } from 'jest-mock';
 import { MapperProcessorService } from '../../../src/shared/mapper/mapper-processor.service';
 import { FixtureMapperService } from '../../../src/shared/mapper/fixture-mapper.service';
 import { FixtureEntity } from '../../../src/fixture/fixture.entity';
 import { TeamDto } from '../../../src/team/dtos/team.dto';
 import { TournamentDto } from '../../../src/tournament/dtos/tournament.dto';
 import { FixtureDto } from '../../../src/fixture/dtos/fixture.dto';
-
-const moduleMocker = new ModuleMocker(global);
+import { TeamEntity } from '../../../src/team/team.entity';
 
 describe('FixtureMapperService', () => {
-  let fixtureMapperService: FixtureMapperService;
   const fixtureEntity: FixtureEntity = {
     id: 45,
     homeTeam: {
@@ -39,7 +36,7 @@ describe('FixtureMapperService', () => {
     updatedAt: new Date(),
   };
 
-  describe('root', () => {
+  describe('map', () => {
     it('should convert Fixture entity to DTO', async () => {
       const homeTeamDto: TeamDto = {
         id: 1,
@@ -69,19 +66,10 @@ describe('FixtureMapperService', () => {
                 .mockReturnValueOnce(tournamentDto),
             };
           }
-
-          if (typeof token === 'function') {
-            const mockMetadata = moduleMocker.getMetadata(
-              token,
-            ) as MockFunctionMetadata<any, any>;
-            const Mock = moduleMocker.generateFromMetadata(mockMetadata);
-
-            return new Mock();
-          }
         })
         .compile();
 
-      fixtureMapperService =
+      const fixtureMapperService =
         app.get<FixtureMapperService>(FixtureMapperService);
 
       const result = await fixtureMapperService.map(fixtureEntity);
@@ -96,6 +84,50 @@ describe('FixtureMapperService', () => {
         date: fixtureEntity.date.toISOString(),
       };
       expect(result).toEqual(expected);
+    });
+  });
+
+  describe('supports', () => {
+    it('should be able to support fixture entity', async () => {
+      const app: TestingModule = await Test.createTestingModule({
+        providers: [FixtureMapperService],
+      })
+        .useMocker(async (token) => {
+          if (token === MapperProcessorService) {
+            return {
+              map: jest.fn(),
+            };
+          }
+        })
+        .compile();
+
+      const fixtureMapperService =
+        app.get<FixtureMapperService>(FixtureMapperService);
+
+      const fixtureEntity: FixtureEntity = new FixtureEntity();
+
+      expect(fixtureMapperService.supports(fixtureEntity)).toBeTruthy();
+    });
+
+    it('should not be able to support entities that is not fixture', async () => {
+      const app: TestingModule = await Test.createTestingModule({
+        providers: [FixtureMapperService],
+      })
+        .useMocker(async (token) => {
+          if (token === MapperProcessorService) {
+            return {
+              map: jest.fn(),
+            };
+          }
+        })
+        .compile();
+
+      const fixtureMapperService =
+        app.get<FixtureMapperService>(FixtureMapperService);
+
+      const entity = new TeamEntity();
+
+      expect(fixtureMapperService.supports(entity)).toBeFalsy();
     });
   });
 });

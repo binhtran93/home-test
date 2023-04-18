@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TournamentMapperService } from '../../../src/shared/mapper/tournament-mapper.service';
 import { TournamentEntity } from '../../../src/tournament/tournament.entity';
+import { FixtureEntity } from '../../../src/fixture/fixture.entity';
 
 describe('TournamentMapperService', () => {
   let tournamentMapperService: TournamentMapperService;
@@ -29,6 +30,20 @@ describe('TournamentMapperService', () => {
         id: 1,
         name: 'name',
       }).toEqual(result);
+    });
+  });
+
+  describe('supports', () => {
+    it('should be able to support Tournament entity', async () => {
+      const entity = new TournamentEntity();
+
+      expect(tournamentMapperService.supports(entity)).toBeTruthy();
+    });
+
+    it('should not be able to support entities that is not Tournament', async () => {
+      const entity = new FixtureEntity();
+
+      expect(tournamentMapperService.supports(entity)).toBeFalsy();
     });
   });
 });
