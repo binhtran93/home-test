@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { FixtureMapperService } from './fixture.mapper.service';
-import { MapperProcessorService } from './mapper.processor.service';
+import { FixtureMapperService } from './fixture-mapper.service';
+import { MapperProcessorService } from './mapper-processor.service';
 import { MAPPER_SERVICES } from './const';
-import { TeamMapperService } from './team.mapper.service';
-import { TournamentMapperService } from './tournament.mapper.service';
+import { TeamMapperService } from './team-mapper.service';
+import { TournamentMapperService } from './tournament-mapper.service';
 
 @Module({
   imports: [],

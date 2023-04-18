@@ -1,7 +1,7 @@
 import { FixtureRepository } from '../fixture.repository';
 import { Injectable } from '@nestjs/common';
 import { FixtureDto } from '../dtos/fixture.dto';
-import { MapperProcessorService } from '../../shared/mapper/mapper.processor.service';
+import { MapperProcessorService } from '../../shared/mapper/mapper-processor.service';
 import { FixtureEntity } from '../fixture.entity';
 
 @Injectable()

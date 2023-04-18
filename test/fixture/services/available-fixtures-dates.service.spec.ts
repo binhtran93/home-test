@@ -1,10 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ModuleMocker, MockFunctionMetadata } from 'jest-mock';
-import { readFile } from 'fs/promises';
-import { FixtureListService } from '../../../src/fixture/services/fixture-list.service';
+import { MockFunctionMetadata, ModuleMocker } from 'jest-mock';
 import { FixtureRepository } from '../../../src/fixture/fixture.repository';
-import { MapperProcessorService } from '../../../src/shared/mapper/mapper.processor.service';
-import { FixtureDto } from '../../../src/fixture/dtos/fixture.dto';
 import { AvailableFixturesDatesService } from '../../../src/fixture/services/available-fixtures-dates.service';
 
 const moduleMocker = new ModuleMocker(global);

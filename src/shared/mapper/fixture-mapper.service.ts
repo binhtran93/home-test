@@ -2,7 +2,7 @@ import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { FixtureEntity } from '../../fixture/fixture.entity';
 import { FixtureDto } from '../../fixture/dtos/fixture.dto';
 import { MapperService } from './mapper.service';
-import { MapperProcessorService } from './mapper.processor.service';
+import { MapperProcessorService } from './mapper-processor.service';
 
 @Injectable()
 export class FixtureMapperService

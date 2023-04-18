@@ -3,7 +3,7 @@ import { ModuleMocker, MockFunctionMetadata } from 'jest-mock';
 import { readFile } from 'fs/promises';
 import { FixtureListService } from '../../../src/fixture/services/fixture-list.service';
 import { FixtureRepository } from '../../../src/fixture/fixture.repository';
-import { MapperProcessorService } from '../../../src/shared/mapper/mapper.processor.service';
+import { MapperProcessorService } from '../../../src/shared/mapper/mapper-processor.service';
 import { FixtureDto } from '../../../src/fixture/dtos/fixture.dto';
 
 const moduleMocker = new ModuleMocker(global);
