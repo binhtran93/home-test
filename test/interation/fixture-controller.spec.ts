@@ -7,9 +7,6 @@ import {
   insertTournaments,
 } from './utils';
 import { DataSource } from 'typeorm';
-import { TeamEntity } from '../../src/team/team.entity';
-import { TournamentEntity } from '../../src/tournament/tournament.entity';
-import { FixtureEntity } from '../../src/fixture/fixture.entity';
 
 describe('FixtureController', () => {
   let app: INestApplication;
@@ -35,8 +32,6 @@ describe('FixtureController', () => {
   });
 
   it('/api/v1/fixtures (GET) Missing startDate', async () => {
-    // const initDb = await readFile(`${__dirname}/init.sql`);
-    // await dataSource.manager.query(initDb.toString());
     request(app.getHttpServer())
       .get('/api/v1/fixtures')
       .query({
