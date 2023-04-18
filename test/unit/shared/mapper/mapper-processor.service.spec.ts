@@ -1,5 +1,5 @@
-import { MapperProcessorService } from '../../../src/shared/mapper/mapper-processor.service';
-import { MAPPER_SERVICES } from '../../../src/shared/mapper/const';
+import { MapperProcessorService } from '../../../../src/shared/mapper/mapper-processor.service';
+import { MAPPER_SERVICES } from '../../../../src/shared/mapper/const';
 import { TestBed } from '@automock/jest';
 
 describe('MapperProcessorService', () => {

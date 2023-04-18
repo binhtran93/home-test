@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { FixtureRepository } from '../../../src/fixture/fixture.repository';
-import { AvailableFixturesDatesService } from '../../../src/fixture/services/available-fixtures-dates.service';
+import { FixtureRepository } from '../../../../src/fixture/fixture.repository';
+import { AvailableFixturesDatesService } from '../../../../src/fixture/services/available-fixtures-dates.service';
 
 describe('AvailableFixturesDatesService', () => {
   let availableFixturesDatesService: AvailableFixturesDatesService;

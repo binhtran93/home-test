@@ -1,11 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MapperProcessorService } from '../../../src/shared/mapper/mapper-processor.service';
-import { FixtureMapperService } from '../../../src/shared/mapper/fixture-mapper.service';
-import { FixtureEntity } from '../../../src/fixture/fixture.entity';
-import { TeamDto } from '../../../src/team/dtos/team.dto';
-import { TournamentDto } from '../../../src/tournament/dtos/tournament.dto';
-import { FixtureDto } from '../../../src/fixture/dtos/fixture.dto';
-import { TeamEntity } from '../../../src/team/team.entity';
+import { MapperProcessorService } from '../../../../src/shared/mapper/mapper-processor.service';
+import { FixtureMapperService } from '../../../../src/shared/mapper/fixture-mapper.service';
+import { FixtureEntity } from '../../../../src/fixture/fixture.entity';
+import { TeamDto } from '../../../../src/team/dtos/team.dto';
+import { TournamentDto } from '../../../../src/tournament/dtos/tournament.dto';
+import { FixtureDto } from '../../../../src/fixture/dtos/fixture.dto';
+import { TeamEntity } from '../../../../src/team/team.entity';
 
 describe('FixtureMapperService', () => {
   const fixtureEntity: FixtureEntity = {

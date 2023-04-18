@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { FixtureController } from '../../src/fixture/fixture.controller';
-import { FixtureListService } from '../../src/fixture/services/fixture-list.service';
-import { PaginationQuery } from '../../src/fixture/dtos/pagination-query.dto';
+import { FixtureController } from '../../../src/fixture/fixture.controller';
+import { FixtureListService } from '../../../src/fixture/services/fixture-list.service';
+import { PaginationQuery } from '../../../src/fixture/dtos/pagination-query.dto';
 import { ModuleMocker, MockFunctionMetadata } from 'jest-mock';
 import { readFile } from 'fs/promises';
 

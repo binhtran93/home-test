@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TeamMapperService } from '../../../src/shared/mapper/team-mapper.service';
-import { TeamEntity } from '../../../src/team/team.entity';
-import { FixtureMapperService } from '../../../src/shared/mapper/fixture-mapper.service';
-import { MapperProcessorService } from '../../../src/shared/mapper/mapper-processor.service';
-import { FixtureEntity } from '../../../src/fixture/fixture.entity';
+import { TeamMapperService } from '../../../../src/shared/mapper/team-mapper.service';
+import { TeamEntity } from '../../../../src/team/team.entity';
+import { FixtureMapperService } from '../../../../src/shared/mapper/fixture-mapper.service';
+import { MapperProcessorService } from '../../../../src/shared/mapper/mapper-processor.service';
+import { FixtureEntity } from '../../../../src/fixture/fixture.entity';
 
 describe('TeamMapperService', () => {
   let teamMapperService: TeamMapperService;

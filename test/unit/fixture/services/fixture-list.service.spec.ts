@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { readFile } from 'fs/promises';
-import { FixtureListService } from '../../../src/fixture/services/fixture-list.service';
-import { FixtureRepository } from '../../../src/fixture/fixture.repository';
-import { MapperProcessorService } from '../../../src/shared/mapper/mapper-processor.service';
-import { FixtureDto } from '../../../src/fixture/dtos/fixture.dto';
+import { FixtureListService } from '../../../../src/fixture/services/fixture-list.service';
+import { FixtureRepository } from '../../../../src/fixture/fixture.repository';
+import { MapperProcessorService } from '../../../../src/shared/mapper/mapper-processor.service';
+import { FixtureDto } from '../../../../src/fixture/dtos/fixture.dto';
 
 describe('FixtureListService', () => {
   let fixtureListService: FixtureListService;

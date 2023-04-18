@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TournamentMapperService } from '../../../src/shared/mapper/tournament-mapper.service';
-import { TournamentEntity } from '../../../src/tournament/tournament.entity';
-import { FixtureEntity } from '../../../src/fixture/fixture.entity';
+import { TournamentMapperService } from '../../../../src/shared/mapper/tournament-mapper.service';
+import { TournamentEntity } from '../../../../src/tournament/tournament.entity';
+import { FixtureEntity } from '../../../../src/fixture/fixture.entity';
 
 describe('TournamentMapperService', () => {
   let tournamentMapperService: TournamentMapperService;
