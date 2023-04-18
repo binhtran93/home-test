@@ -18,15 +18,27 @@ export class FixtureEntity {
   @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true })
   id: number;
 
-  @ManyToOne(() => TournamentEntity, { nullable: false })
+  @ManyToOne(() => TournamentEntity, {
+    nullable: false,
+    onDelete: 'RESTRICT',
+    onUpdate: 'RESTRICT',
+  })
   @JoinColumn({ name: 'tournamentId' })
   tournament: TournamentEntity;
 
-  @ManyToOne(() => TeamEntity, { nullable: false })
+  @ManyToOne(() => TeamEntity, {
+    nullable: false,
+    onDelete: 'RESTRICT',
+    onUpdate: 'RESTRICT',
+  })
   @JoinColumn({ name: 'homeTeamId' })
   homeTeam: TeamEntity;
 
-  @ManyToOne(() => TeamEntity, { nullable: false })
+  @ManyToOne(() => TeamEntity, {
+    nullable: false,
+    onDelete: 'RESTRICT',
+    onUpdate: 'RESTRICT',
+  })
   @JoinColumn({ name: 'awayTeamId' })
   awayTeam: TeamEntity;
 
@@ -38,6 +50,9 @@ export class FixtureEntity {
 
   @Column({ length: 50 })
   state: FixtureState;
+
+  @Column({ length: 500 })
+  logo: string;
 
   @Column({ type: 'timestamp' })
   @Index()
