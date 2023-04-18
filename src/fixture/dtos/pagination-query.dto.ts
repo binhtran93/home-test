@@ -25,5 +25,5 @@ export class PaginationQuery {
     example: '30',
     required: false,
   })
-  limit = 20;
+  limit: number = 20;
 }

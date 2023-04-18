@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { FixtureMapperService } from './fixture.mapper.service';
 import { MapperProcessorService } from './mapper.processor.service';
 import { MAPPER_SERVICES } from './const';
+import { TeamMapperService } from './team.mapper.service';
+import { TournamentMapperService } from './tournament.mapper.service';
 
 @Module({
   imports: [],
@@ -9,9 +11,15 @@ import { MAPPER_SERVICES } from './const';
   providers: [
     MapperProcessorService,
     FixtureMapperService,
+    TeamMapperService,
+    TournamentMapperService,
     {
       provide: MAPPER_SERVICES,
-      inject: [FixtureMapperService],
+      inject: [
+        FixtureMapperService,
+        TeamMapperService,
+        TournamentMapperService,
+      ],
       useFactory: (...services) => {
         return services;
       },

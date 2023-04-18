@@ -14,7 +14,7 @@ export class TeamEntity {
 
   @Column({ type: 'varchar' })
   @Index()
-  name: number;
+  name: string;
 
   @CreateDateColumn({ type: 'timestamp' })
   @Index()
