@@ -9,6 +9,7 @@ export class TeamMapperService implements MapperService<TeamEntity, TeamDto> {
     const dto = new TeamDto();
     dto.id = entity.id;
     dto.name = entity.name;
+    dto.logo = entity.logo;
 
     return dto;
   }

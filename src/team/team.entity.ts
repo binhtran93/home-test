@@ -16,6 +16,9 @@ export class TeamEntity {
   @Index()
   name: string;
 
+  @Column({ length: 500 })
+  logo: string;
+
   @CreateDateColumn({ type: 'timestamp' })
   @Index()
   createdAt: Date;

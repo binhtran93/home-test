@@ -1,21 +1,9 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class Init1681835315579 implements MigrationInterface {
-    name = 'Init1681835315579'
+export class Init1681836128707 implements MigrationInterface {
+    name = 'Init1681836128707'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
-            CREATE TABLE \`team\` (
-                \`id\` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-                \`name\` varchar(255) NOT NULL,
-                \`createdAt\` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-                \`updatedAt\` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-                INDEX \`IDX_cf461f5b40cf1a2b8876011e1e\` (\`name\`),
-                INDEX \`IDX_2cc4c76495121fb01694252386\` (\`createdAt\`),
-                INDEX \`IDX_2385186738826cbcd6fda6ecd6\` (\`updatedAt\`),
-                PRIMARY KEY (\`id\`)
-            ) ENGINE = InnoDB
-        `);
         await queryRunner.query(`
             CREATE TABLE \`tournament\` (
                 \`id\` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -29,12 +17,24 @@ export class Init1681835315579 implements MigrationInterface {
             ) ENGINE = InnoDB
         `);
         await queryRunner.query(`
+            CREATE TABLE \`team\` (
+                \`id\` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+                \`name\` varchar(255) NOT NULL,
+                \`logo\` varchar(500) NOT NULL,
+                \`createdAt\` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+                \`updatedAt\` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+                INDEX \`IDX_cf461f5b40cf1a2b8876011e1e\` (\`name\`),
+                INDEX \`IDX_2cc4c76495121fb01694252386\` (\`createdAt\`),
+                INDEX \`IDX_2385186738826cbcd6fda6ecd6\` (\`updatedAt\`),
+                PRIMARY KEY (\`id\`)
+            ) ENGINE = InnoDB
+        `);
+        await queryRunner.query(`
             CREATE TABLE \`fixture\` (
                 \`id\` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
                 \`homeTeamScore\` int UNSIGNED NULL,
                 \`awayTeamScore\` int UNSIGNED NULL,
                 \`state\` varchar(50) NOT NULL,
-                \`logo\` varchar(500) NOT NULL,
                 \`date\` timestamp NOT NULL,
                 \`createdAt\` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
                 \`updatedAt\` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
@@ -84,18 +84,6 @@ export class Init1681835315579 implements MigrationInterface {
             DROP TABLE \`fixture\`
         `);
         await queryRunner.query(`
-            DROP INDEX \`IDX_063ac52bc8ef13e15648470d87\` ON \`tournament\`
-        `);
-        await queryRunner.query(`
-            DROP INDEX \`IDX_09ef19d3c8210acb6cc486b19d\` ON \`tournament\`
-        `);
-        await queryRunner.query(`
-            DROP INDEX \`IDX_39c996e461f5fe152d4811f9e5\` ON \`tournament\`
-        `);
-        await queryRunner.query(`
-            DROP TABLE \`tournament\`
-        `);
-        await queryRunner.query(`
             DROP INDEX \`IDX_2385186738826cbcd6fda6ecd6\` ON \`team\`
         `);
         await queryRunner.query(`
@@ -106,6 +94,18 @@ export class Init1681835315579 implements MigrationInterface {
         `);
         await queryRunner.query(`
             DROP TABLE \`team\`
+        `);
+        await queryRunner.query(`
+            DROP INDEX \`IDX_063ac52bc8ef13e15648470d87\` ON \`tournament\`
+        `);
+        await queryRunner.query(`
+            DROP INDEX \`IDX_09ef19d3c8210acb6cc486b19d\` ON \`tournament\`
+        `);
+        await queryRunner.query(`
+            DROP INDEX \`IDX_39c996e461f5fe152d4811f9e5\` ON \`tournament\`
+        `);
+        await queryRunner.query(`
+            DROP TABLE \`tournament\`
         `);
     }
 

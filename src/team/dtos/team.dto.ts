@@ -6,4 +6,7 @@ export class TeamDto {
 
   @ApiProperty()
   name: string;
+
+  @ApiProperty()
+  logo: string;
 }

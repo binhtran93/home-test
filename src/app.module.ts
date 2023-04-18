@@ -2,10 +2,14 @@ import { Module } from '@nestjs/common';
 import { FixtureModule } from './fixture/fixture.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TeamModule } from './team/team.module';
+import { TournamentModule } from './tournament/tournament.module';
 
 @Module({
   imports: [
     FixtureModule,
+    TeamModule,
+    TournamentModule,
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
       useFactory() {

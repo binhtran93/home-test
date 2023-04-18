@@ -51,9 +51,6 @@ export class FixtureEntity {
   @Column({ length: 50 })
   state: FixtureState;
 
-  @Column({ length: 500 })
-  logo: string;
-
   @Column({ type: 'timestamp' })
   @Index()
   date: Date;
