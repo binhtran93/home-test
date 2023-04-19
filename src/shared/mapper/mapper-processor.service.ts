@@ -2,6 +2,10 @@ import { Inject, Injectable } from '@nestjs/common';
 import { MapperService } from './mapper.service';
 import { MAPPER_SERVICES } from './const';
 
+/**
+ * Using Strategy Pattern for the mapper module, this allows us to achieve "Open/Closed Principle" to avoid modify
+ * existing classes
+ */
 @Injectable()
 export class MapperProcessorService {
   constructor(
