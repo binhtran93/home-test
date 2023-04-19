@@ -15,12 +15,14 @@ describe('FixtureMapperService', () => {
       name: 'Casper Inc',
       createdAt: new Date(),
       updatedAt: new Date(),
+      logo: 'https://logo.com/',
     },
     awayTeam: {
       id: 81,
       name: 'Monahan, Pollich and MacGyver',
       createdAt: new Date(),
       updatedAt: new Date(),
+      logo: 'https://logo.com/',
     },
     tournament: {
       id: 2,
@@ -41,11 +43,13 @@ describe('FixtureMapperService', () => {
       const homeTeamDto: TeamDto = {
         id: 1,
         name: 'home_team',
+        logo: 'https://logo.com/',
       };
 
       const awayTeamDto: TeamDto = {
         id: 2,
         name: 'away_team',
+        logo: 'https://logo.com/',
       };
 
       const tournamentDto: TournamentDto = {

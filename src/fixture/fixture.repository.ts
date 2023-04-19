@@ -35,14 +35,20 @@ export class FixtureRepository extends Repository<FixtureEntity> {
     endDate: Date,
   ): Promise<string[]> {
     const qb = await this.createQueryBuilder('f')
-      .select('YEAR(date) as y, Month(date) as m, DAY(date) as d')
+      .select(
+        "YEAR(date) as y, DATE_FORMAT(date, '%m') as m, DATE_FORMAT(date, '%d') as d",
+      )
       .where('f.date >= :startDate')
       .andWhere('f.date <= :endDate')
       .orderBy({
         'f.date': 'ASC',
       })
-      .groupBy('YEAR(f.date), Month(f.date), DAY(f.date)')
-      .orderBy('YEAR(f.date), Month(f.date), DAY(f.date)')
+      .groupBy(
+        "YEAR(f.date), DATE_FORMAT(f.date, '%m'), DATE_FORMAT(f.date, '%d')",
+      )
+      .orderBy(
+        "YEAR(f.date), DATE_FORMAT(f.date, '%m'), DATE_FORMAT(f.date, '%d')",
+      )
       .setParameters({
         startDate: startDate,
         endDate: endDate,

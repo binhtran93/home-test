@@ -13,10 +13,12 @@ describe('FixtureListService', () => {
     homeTeam: {
       id: 14,
       name: 'Casper Inc',
+      logo: 'https://logo.com/',
     },
     awayTeam: {
       id: 81,
       name: 'Monahan, Pollich and MacGyver',
+      logo: 'https://logo.com/',
     },
     tournament: {
       id: 2,

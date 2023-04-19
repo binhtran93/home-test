@@ -1,8 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TeamMapperService } from '../../../../src/shared/mapper/team-mapper.service';
 import { TeamEntity } from '../../../../src/team/team.entity';
-import { FixtureMapperService } from '../../../../src/shared/mapper/fixture-mapper.service';
-import { MapperProcessorService } from '../../../../src/shared/mapper/mapper-processor.service';
 import { FixtureEntity } from '../../../../src/fixture/fixture.entity';
 
 describe('TeamMapperService', () => {
@@ -21,6 +19,7 @@ describe('TeamMapperService', () => {
       const entity: TeamEntity = {
         id: 1,
         name: 'name',
+        logo: 'https://logo.com/',
         createdAt: new Date(),
         updatedAt: new Date(),
       };
@@ -29,6 +28,7 @@ describe('TeamMapperService', () => {
       expect({
         id: 1,
         name: 'name',
+        logo: 'https://logo.com/',
       }).toEqual(result);
     });
   });
