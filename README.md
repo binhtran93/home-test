@@ -25,9 +25,13 @@ $ make migrate
 $ make seed
 ```
 
+## API documentation
+http://localhost:5000/api
+
 ## Test
 
 ```bash
 # unit tests & integration tests 
 $ make run_test
 ```
+
