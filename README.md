@@ -26,7 +26,9 @@ $ make seed
 ```
 
 ## API documentation
-http://localhost:5000/api/v1/docs
+dev: http://localhost:5000/api/v1/docs
+
+live: http://128.199.138.114:5000/api/v1/docs
 
 ## Test
 
