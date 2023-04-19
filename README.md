@@ -37,3 +37,7 @@ $ make run_test
 
 ## DB Design
 <img src="db.png" width="50%" alt="db_design">
+
+## Decisions
+1. [0001-fixture-pagination](doc/decisions/0001-fixture-pagination.md)
+2. [0002-dto-and-swagger](doc/decisions/0002-dto-and-swagger.md)
