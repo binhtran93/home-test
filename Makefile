@@ -13,6 +13,9 @@ migrate:
 seed:
 	$(DOCKER_COMPOSE) exec -it $(DOCKER_SERVICE_DB_NAME) bash -c "mysql -uroot -p123456 db < /usr/src/app/.docker/mysql/init.sql"
 
+run_test:
+	$(DOCKER_COMPOSE) run --rm $(DOCKER_SERVICE_APP_NAME) bash -c "yarn run test"
+
 down:
 	$(DOCKER_COMPOSE) down --remove-orphans
 
