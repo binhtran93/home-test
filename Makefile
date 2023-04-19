@@ -4,6 +4,9 @@ DOCKER_COMPOSE=docker-compose -p $(PROJECT_NAME) -f $(DOCKER_COMPOSE_FILES)
 DOCKER_SERVICE_APP_NAME=app
 DOCKER_SERVICE_DB_NAME=mysql
 
+npm_install:
+	$(DOCKER_COMPOSE) run --rm $(DOCKER_SERVICE_APP_NAME) bash -c "yarn"
+
 startup: down
 	$(DOCKER_COMPOSE) up --build -d
 

@@ -15,6 +15,9 @@ sudo apt install make
 ## Running the app
 
 ```bash
+# Install npm packages 
+$ make npm_install
+
 # Startup 
 $ make startup
 

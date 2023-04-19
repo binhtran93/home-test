@@ -5,15 +5,13 @@ services:
     build:
       context: ..
       dockerfile: .docker/Dockerfile
-      target: development
     volumes:
       - ../:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
     expose:
       - "5000"
     ports:
       - "5000:5000"
-    command: npm run start:dev
+    command: yarn run start:dev
 
   mysql:
     image: mysql:8.0.23
@@ -30,4 +28,3 @@ services:
 
 volumes:
   db:
-  node_modules:
