@@ -5,5 +5,3 @@ WORKDIR /usr/src/app
 COPY --chown=node:node package*.json ./
 
 RUN yarn install
-
-USER node
