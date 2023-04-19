@@ -1,6 +1,19 @@
 version: "3.8"
 
 services:
+  app:
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile
+      target: development
+    volumes:
+      - ../:/usr/src/app
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+    command: npm run start:dev
+
   mysql:
     image: mysql:8.0.23
     expose:
@@ -12,6 +25,7 @@ services:
     volumes:
       - db:/var/lib/mysql/:cached
       - ./mysql/sql:/docker-entrypoint-initdb.d
+      - ./mysql/init.sql:/usr/src/app/.docker/mysql/init.sql
 
 volumes:
   db:
