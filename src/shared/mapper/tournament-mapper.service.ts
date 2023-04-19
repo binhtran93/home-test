@@ -7,6 +7,10 @@ import { TournamentDto } from '../../tournament/dtos/tournament.dto';
 export class TournamentMapperService
   implements MapperService<TournamentEntity, TournamentDto>
 {
+  /**
+   * Map @TournamentEntity to @TournamentDto
+   * @param entity
+   */
   map(entity: TournamentEntity): TournamentDto {
     const dto = new TournamentDto();
     dto.id = entity.id;
@@ -15,6 +19,11 @@ export class TournamentMapperService
     return dto;
   }
 
+  /**
+   * Condition for the mapping
+   * @param entity
+   * @return boolean
+   */
   supports(entity: object) {
     return entity instanceof TournamentEntity;
   }

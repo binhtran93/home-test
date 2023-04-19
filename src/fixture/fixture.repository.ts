@@ -11,6 +11,12 @@ export class FixtureRepository extends Repository<FixtureEntity> {
     super(repository.target, repository.manager, repository.queryRunner);
   }
 
+  /**
+   * Paginate fixtures
+   * @param startDate
+   * @param endDate
+   * @param limit
+   */
   async paginate(startDate: Date, endDate: Date, limit: number) {
     const qb = await this.createQueryBuilder('fixture')
       .leftJoinAndSelect('fixture.homeTeam', 'homeTeam')
@@ -30,6 +36,11 @@ export class FixtureRepository extends Repository<FixtureEntity> {
     return qb.getMany();
   }
 
+  /**
+   * Find all dates that have fixtures within date window
+   * @param startDate
+   * @param endDate
+   */
   async findDatesHaveFixtures(
     startDate: Date,
     endDate: Date,

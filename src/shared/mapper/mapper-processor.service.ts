@@ -9,6 +9,11 @@ export class MapperProcessorService {
     private readonly mapperServices: MapperService<any, any>[],
   ) {}
 
+  /**
+   * Find valid mapper based on entity type and then map to DTO
+   * @param entity
+   * @throws Error
+   */
   map<E, D>(entity: E): D {
     for (const mapperService of this.mapperServices) {
       if (mapperService.supports(entity)) {

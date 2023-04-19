@@ -11,6 +11,12 @@ export class FixtureListService {
     private readonly mapperProcessorService: MapperProcessorService,
   ) {}
 
+  /**
+   * Paginate the fixtures
+   * @param startDate
+   * @param endDate
+   * @param limit
+   */
   async paginate(
     startDate: Date,
     endDate: Date,

@@ -5,6 +5,10 @@ import { TeamDto } from '../../team/dtos/team.dto';
 
 @Injectable()
 export class TeamMapperService implements MapperService<TeamEntity, TeamDto> {
+  /**
+   * Map @TeamEntity to @TeamDto
+   * @param entity
+   */
   map(entity: TeamEntity): TeamDto {
     const dto = new TeamDto();
     dto.id = entity.id;
@@ -14,6 +18,11 @@ export class TeamMapperService implements MapperService<TeamEntity, TeamDto> {
     return dto;
   }
 
+  /**
+   * Condition for the mapping
+   * @param entity
+   * @return boolean
+   */
   supports(entity: object) {
     return entity instanceof TeamEntity;
   }

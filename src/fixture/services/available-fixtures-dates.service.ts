@@ -6,6 +6,11 @@ import { AvailableFixturesDateResponseDto } from '../dtos/available-fixtures-dat
 export class AvailableFixturesDatesService {
   constructor(private readonly fixtureRepository: FixtureRepository) {}
 
+  /**
+   * Get dates that have fixtures
+   * @param startDate
+   * @param endDate
+   */
   async get(
     startDate: Date,
     endDate: Date,

@@ -13,6 +13,11 @@ export class FixtureMapperService
     private readonly mapperProcessorService: MapperProcessorService,
   ) {}
 
+  /**
+   * Map @FixtureEntity to @FixtureDto
+   * @param entity
+   * @return FixtureDto
+   */
   map(entity: FixtureEntity): FixtureDto {
     const dto = new FixtureDto();
     dto.id = entity.id;
@@ -27,6 +32,11 @@ export class FixtureMapperService
     return dto;
   }
 
+  /**
+   * Condition for the mapping
+   * @param entity
+   * @return boolean
+   */
   supports(entity: object) {
     return entity instanceof FixtureEntity;
   }

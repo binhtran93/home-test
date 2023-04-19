@@ -10,6 +10,11 @@ import { EntityNotFoundError } from 'typeorm';
 
 @Catch()
 export class ExceptionFilter implements BaseExceptionFilter {
+  /**
+   * Global exception handler
+   * @param exception
+   * @param host
+   */
   catch(exception: Error, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();

@@ -15,6 +15,10 @@ export class FixtureController {
     private readonly datesHaveMatchesService: AvailableFixturesDatesService,
   ) {}
 
+  /**
+   * API to list fixtures with pagination
+   * @param paginationQuery
+   */
   @Get('/')
   @ApiResponse({
     status: 200,
@@ -30,6 +34,10 @@ export class FixtureController {
     );
   }
 
+  /**
+   * API to get dates that have fixtures
+   * @param datesHaveMatchesQueryDto
+   */
   @Get('/dates')
   @ApiResponse({
     status: 200,
