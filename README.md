@@ -35,3 +35,5 @@ http://localhost:5000/api
 $ make run_test
 ```
 
+## DB Design
+<img src="db.png" width="50%" alt="db_design">
