@@ -8,6 +8,13 @@ import {
 } from './utils';
 import { DataSource } from 'typeorm';
 
+import * as chai from 'chai';
+import * as chaiJsonSchema from 'chai-json-schema';
+import fixtureSchema from './schema/fixture.schema';
+
+chai.use(chaiJsonSchema);
+const chaiExpect = chai.expect;
+
 describe('FixtureController', () => {
   let app: INestApplication;
 
@@ -72,6 +79,9 @@ describe('FixtureController', () => {
         .expect(200)
         .expect((res) => {
           expect(res.body.length).toEqual(10);
+          res.body.forEach((fixture) => {
+            chaiExpect(fixture).to.be.jsonSchema(fixtureSchema);
+          });
         });
     });
   });
