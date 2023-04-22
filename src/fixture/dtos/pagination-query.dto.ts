@@ -18,16 +18,22 @@ export class PaginationQuery {
 
   @Type(() => Number)
   @ApiPropertyOptional({
+    description: 'Filter by tournament id',
+    example: 1,
+  })
+  tournamentId?: number;
+
+  @Type(() => Number)
+  @ApiPropertyOptional({
     description: 'Limit number of fixtures',
-    example: '30',
-    required: false,
+    example: 30,
   })
   limit?: number;
 
   @Type(() => Number)
   @ApiPropertyOptional({
     description: 'Page of fixtures',
-    example: '1',
+    example: 1,
     required: false,
   })
   page?: number;

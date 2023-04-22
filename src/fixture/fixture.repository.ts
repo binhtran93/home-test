@@ -14,6 +14,7 @@ export class FixtureRepository extends Repository<FixtureEntity> {
   /**
    * Paginate fixtures
    * @param page
+   * @param tournamentId
    * @param startDate
    * @param endDate
    * @param limit
@@ -21,6 +22,7 @@ export class FixtureRepository extends Repository<FixtureEntity> {
   async paginate(
     page: number,
     limit: number,
+    tournamentId?: number,
     startDate?: Date,
     endDate?: Date,
   ) {
@@ -32,19 +34,25 @@ export class FixtureRepository extends Repository<FixtureEntity> {
       .orderBy({
         'fixture.date': 'ASC',
       })
-      .setParameters({
-        startDate: startDate,
-        endDate: endDate,
-      })
       .offset((page - 1) * limit)
       .limit(limit);
 
+    if (tournamentId != null) {
+      qb.andWhere('fixture.tournamentId = :tournamentId').setParameter(
+        'tournamentId',
+        tournamentId,
+      );
+    }
+
     if (startDate != null) {
-      qb.andWhere('fixture.date >= :startDate');
+      qb.andWhere('fixture.date >= :startDate').setParameter(
+        'startDate',
+        startDate,
+      );
     }
 
     if (endDate != null) {
-      qb.andWhere('fixture.date <= :endDate');
+      qb.andWhere('fixture.date <= :endDate').setParameter('endDate', endDate);
     }
 
     return qb.getMany();
