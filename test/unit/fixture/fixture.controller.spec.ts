@@ -2,10 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { FixtureController } from '../../../src/fixture/fixture.controller';
 import { FixtureListService } from '../../../src/fixture/services/fixture-list.service';
 import { PaginationQuery } from '../../../src/fixture/dtos/pagination-query.dto';
-import { ModuleMocker, MockFunctionMetadata } from 'jest-mock';
 import { readFile } from 'fs/promises';
-
-const moduleMocker = new ModuleMocker(global);
 
 describe('FixtureController', () => {
   let fixtureController: FixtureController;
@@ -24,15 +21,6 @@ describe('FixtureController', () => {
           return {
             paginate: jest.fn().mockResolvedValue(fixtureData),
           };
-        }
-
-        if (typeof token === 'function') {
-          const mockMetadata = moduleMocker.getMetadata(
-            token,
-          ) as MockFunctionMetadata<any, any>;
-          const Mock = moduleMocker.generateFromMetadata(mockMetadata);
-
-          return new Mock();
         }
       })
       .compile();

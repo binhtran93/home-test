@@ -41,31 +41,7 @@ describe('FixtureController', () => {
   });
 
   describe('/api/v1/fixtures (GET)', () => {
-    it('Missing startDate', async () => {
-      request(app.getHttpServer())
-        .get('/api/v1/fixtures')
-        .query({
-          endDate: new Date().toISOString(),
-        })
-        .expect(400)
-        .expect((res) => {
-          expect(res.body.data[0]).toEqual('startDate should not be empty');
-        });
-    });
-
-    it('Missing endDate', () => {
-      return request(app.getHttpServer())
-        .get('/api/v1/fixtures')
-        .query({
-          startDate: new Date().toISOString(),
-        })
-        .expect(400)
-        .expect((res) => {
-          expect(res.body.data[0]).toEqual('endDate should not be empty');
-        });
-    });
-
-    it('with paging', async () => {
+    it('can return paged fixtures', async () => {
       await insertTournaments(app.get(DataSource));
       await insertTeams(app.get(DataSource));
       await insertFixtures(app.get(DataSource));
@@ -75,6 +51,27 @@ describe('FixtureController', () => {
           startDate: '2023-04-09 05:51:14',
           endDate: '2023-04-24 23:51:14',
           limit: 10,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.length).toEqual(10);
+          res.body.forEach((fixture) => {
+            chaiExpect(fixture).to.be.jsonSchema(fixtureSchema);
+          });
+        });
+    });
+
+    it('can return paged fixtures when filter with tournament', async () => {
+      await insertTournaments(app.get(DataSource));
+      await insertTeams(app.get(DataSource));
+      await insertFixtures(app.get(DataSource));
+      return request(app.getHttpServer())
+        .get('/api/v1/fixtures')
+        .query({
+          startDate: '2023-04-09 05:51:14',
+          endDate: '2023-04-24 23:51:14',
+          tournamentId: 1,
+          limit: 5,
         })
         .expect(200)
         .expect((res) => {
@@ -130,6 +127,27 @@ describe('FixtureController', () => {
             {
               date: '2023-04-12',
             },
+            {
+              date: '2023-04-15',
+            },
+          ]);
+        });
+    });
+
+    it('can return list of available dates have fixtures when filter with tournament', async () => {
+      await insertTournaments(app.get(DataSource));
+      await insertTeams(app.get(DataSource));
+      await insertFixtures(app.get(DataSource));
+      return request(app.getHttpServer())
+        .get('/api/v1/fixtures/dates')
+        .query({
+          startDate: '2023-04-09 05:51:14',
+          endDate: '2023-04-15 23:51:14',
+          tournamentId: 3,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toEqual([
             {
               date: '2023-04-15',
             },

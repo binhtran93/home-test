@@ -58,11 +58,13 @@ describe('FixtureListService', () => {
   describe('root', () => {
     it('should return paginated fixtures DTO', async () => {
       const limit = Math.floor(Math.random() * 30);
-      const result = await fixtureListService.paginate(
-        new Date(),
-        new Date(),
-        limit,
-      );
+      const result = await fixtureListService.paginate({
+        startDate: new Date(),
+        endDate: new Date(),
+        limit: limit,
+        page: 1,
+        tournamentId: 1,
+      });
 
       const expected = result.map(() => fixtureDto);
 

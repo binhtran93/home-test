@@ -28,10 +28,11 @@ describe('AvailableFixturesDatesService', () => {
 
   describe('root', () => {
     it('should return available fixtures dates DTO', async () => {
-      const result = await availableFixturesDatesService.get(
-        new Date(),
-        new Date(),
-      );
+      const result = await availableFixturesDatesService.get({
+        startDate: new Date(),
+        endDate: new Date(),
+        tournamentId: 1,
+      });
 
       const expected = datesHaveFixtures.map((date) => {
         return {
