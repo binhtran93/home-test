@@ -62,10 +62,10 @@ export default {
       enum: ['live', 'FT', 'scheduled'],
     },
     homeTeamScore: {
-      type: 'number',
+      type: ['number', 'null'],
     },
     awayTeamScore: {
-      type: 'number',
+      type: ['number', 'null'],
     },
     date: {
       type: 'string',
