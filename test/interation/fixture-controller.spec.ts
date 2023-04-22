@@ -71,11 +71,11 @@ describe('FixtureController', () => {
           startDate: '2023-04-09 05:51:14',
           endDate: '2023-04-24 23:51:14',
           tournamentId: 1,
-          limit: 5,
+          limit: 10,
         })
         .expect(200)
         .expect((res) => {
-          expect(res.body.length).toEqual(10);
+          expect(res.body.length).toEqual(5);
           res.body.forEach((fixture) => {
             chaiExpect(fixture).to.be.jsonSchema(fixtureSchema);
           });
