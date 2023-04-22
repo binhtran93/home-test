@@ -18,9 +18,17 @@ export class PaginationQuery {
 
   @Type(() => Number)
   @ApiPropertyOptional({
-    description: 'Limit number of fixtures for each request',
+    description: 'Limit number of fixtures',
     example: '30',
     required: false,
   })
   limit?: number;
+
+  @Type(() => Number)
+  @ApiPropertyOptional({
+    description: 'Page of fixtures',
+    example: '1',
+    required: false,
+  })
+  page?: number;
 }

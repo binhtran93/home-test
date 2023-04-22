@@ -13,16 +13,19 @@ export class FixtureListService {
 
   /**
    * Paginate the fixtures
+   * @param page
    * @param startDate
    * @param endDate
    * @param limit
    */
   async paginate(
+    page: number,
     limit: number,
     startDate?: Date,
     endDate?: Date,
   ): Promise<FixtureDto[]> {
     const fixtures = await this.fixtureRepository.paginate(
+      page,
       limit,
       startDate,
       endDate,
