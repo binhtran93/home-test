@@ -28,9 +28,9 @@ export class FixtureController {
     @Query() paginationQuery: PaginationQuery,
   ): Promise<FixtureDto[]> {
     return this.fixtureListService.paginate(
+      paginationQuery.limit ?? 20,
       paginationQuery.startDate,
       paginationQuery.endDate,
-      paginationQuery.limit,
     );
   }
 

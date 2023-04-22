@@ -17,13 +17,12 @@ export class FixtureRepository extends Repository<FixtureEntity> {
    * @param endDate
    * @param limit
    */
-  async paginate(startDate: Date, endDate: Date, limit: number) {
+  async paginate(limit: number, startDate?: Date, endDate?: Date) {
     const qb = await this.createQueryBuilder('fixture')
       .leftJoinAndSelect('fixture.homeTeam', 'homeTeam')
       .leftJoinAndSelect('fixture.awayTeam', 'awayTeam')
       .leftJoinAndSelect('fixture.tournament', 'tournament')
-      .where('fixture.date >= :startDate')
-      .andWhere('fixture.date <= :endDate')
+      .where('1 = 1')
       .orderBy({
         'fixture.date': 'ASC',
       })
@@ -32,6 +31,14 @@ export class FixtureRepository extends Repository<FixtureEntity> {
         endDate: endDate,
       })
       .limit(limit);
+
+    if (startDate != null) {
+      qb.andWhere('fixture.date >= :startDate');
+    }
+
+    if (endDate != null) {
+      qb.andWhere('fixture.date <= :endDate');
+    }
 
     return qb.getMany();
   }

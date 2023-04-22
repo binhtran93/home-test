@@ -1,29 +1,26 @@
 import { Type } from 'class-transformer';
-import { IsNotEmpty } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 
 export class PaginationQuery {
   @Type(() => Date)
-  @IsNotEmpty()
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'ISO-8601 format',
     example: '2023-05-15T16:08:14',
   })
-  startDate: Date;
+  startDate?: Date;
 
   @Type(() => Date)
-  @IsNotEmpty()
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'ISO-8601 format',
     example: '2023-05-20 16:08:13',
   })
-  endDate: Date;
+  endDate?: Date;
 
   @Type(() => Number)
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'Limit number of fixtures for each request',
     example: '30',
     required: false,
   })
-  limit: number = 20;
+  limit?: number;
 }

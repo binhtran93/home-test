@@ -18,14 +18,14 @@ export class FixtureListService {
    * @param limit
    */
   async paginate(
-    startDate: Date,
-    endDate: Date,
     limit: number,
+    startDate?: Date,
+    endDate?: Date,
   ): Promise<FixtureDto[]> {
     const fixtures = await this.fixtureRepository.paginate(
+      limit,
       startDate,
       endDate,
-      limit,
     );
 
     return fixtures.map((fixture) =>
