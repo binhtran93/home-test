@@ -32,7 +32,7 @@ export class FixtureController {
 
   /**
    * API to get dates that have fixtures
-   * @param datesHaveMatchesQueryDto
+   * @param availableFixturesDateQueryDto
    */
   @Get('/dates')
   @ApiResponse({
@@ -40,11 +40,8 @@ export class FixtureController {
     type: [AvailableFixturesDateResponseDto],
   })
   async getDatesHaveMatches(
-    @Query() datesHaveMatchesQueryDto: AvailableFixturesDateQueryDto,
+    @Query() availableFixturesDateQueryDto: AvailableFixturesDateQueryDto,
   ): Promise<AvailableFixturesDateResponseDto[]> {
-    return this.datesHaveMatchesService.get(
-      datesHaveMatchesQueryDto.startDate,
-      datesHaveMatchesQueryDto.endDate,
-    );
+    return this.datesHaveMatchesService.get(availableFixturesDateQueryDto);
   }
 }

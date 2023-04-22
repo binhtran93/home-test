@@ -62,10 +62,12 @@ export class FixtureRepository extends Repository<FixtureEntity> {
    * Find all dates that have fixtures within date window
    * @param startDate
    * @param endDate
+   * @param tournamentId
    */
   async findDatesHaveFixtures(
     startDate: Date,
     endDate: Date,
+    tournamentId?: number,
   ): Promise<string[]> {
     const qb = await this.createQueryBuilder('f')
       .select(
@@ -86,6 +88,13 @@ export class FixtureRepository extends Repository<FixtureEntity> {
         startDate: startDate,
         endDate: endDate,
       });
+
+    if (tournamentId != null) {
+      qb.andWhere('f.tournamentId = :tournamentId').setParameter(
+        'tournamentId',
+        tournamentId,
+      );
+    }
 
     const rawData = await qb.getRawMany();
 

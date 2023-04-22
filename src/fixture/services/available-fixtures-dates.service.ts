@@ -1,6 +1,7 @@
 import { FixtureRepository } from '../fixture.repository';
 import { Injectable } from '@nestjs/common';
 import { AvailableFixturesDateResponseDto } from '../dtos/available-fixtures-date-response.dto';
+import { AvailableFixturesDateQueryDto } from '../dtos/available-fixtures-date-query.dto';
 
 @Injectable()
 export class AvailableFixturesDatesService {
@@ -8,16 +9,16 @@ export class AvailableFixturesDatesService {
 
   /**
    * Get dates that have fixtures
-   * @param startDate
-   * @param endDate
+   * @param availableFixturesDateQueryDto
    */
   async get(
-    startDate: Date,
-    endDate: Date,
+    availableFixturesDateQueryDto: AvailableFixturesDateQueryDto,
   ): Promise<AvailableFixturesDateResponseDto[]> {
+    const { startDate, endDate, tournamentId } = availableFixturesDateQueryDto;
     const availableDates = await this.fixtureRepository.findDatesHaveFixtures(
       startDate,
       endDate,
+      tournamentId,
     );
 
     return availableDates.map((availableDate) => {
